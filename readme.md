@@ -10,7 +10,7 @@ La-Blog is a simplest blog website that include an gallery into it, it suitable 
 
 ## Installation
 
-Clone this repository or go to release page, and then go to terminal and type following command to install the depedencies.
+Clone this repository or go to [release](https://github.com/aziyan99/la-blog/releases) page, and then go to terminal and type following command to install the depedencies.
 ```sh
 composer install
 ```
