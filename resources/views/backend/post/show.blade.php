@@ -24,7 +24,7 @@
                     <span class="badge badge-info">{{ $post->created_at }}</span>
                     <br>
                     <br>
-                    <img src="{{ asset('assets/images') . "/" . $post->image }}" alt="img" class="img-fluid">
+                    <img src="{{ asset($post->image) }}" alt="img" class="img-fluid">
                     <br>
                     <br>
                     {!! ($post->post) !!}

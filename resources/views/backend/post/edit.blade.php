@@ -92,7 +92,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-4 col-form-label text-right">Gambar Sebelumnya</label>
                                     <div class="col-sm-8">
-                                        <img src="{{ asset('assets/images') . "/" . $post->image }}" alt="img" class="img-fluid">
+                                        <img src="{{ asset($post->image) }}" alt="img" class="img-fluid">
                                     </div>
                                 </div>
 

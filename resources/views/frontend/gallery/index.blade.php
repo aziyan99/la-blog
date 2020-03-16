@@ -7,7 +7,7 @@
      <div class="col-lg-6 col-md-6 col-sm-6 mt-3">
          <div class="card">
              @foreach($gallery->photos as $photo)
-                 <img class="card-img-top" src="{{ asset('assets/gallery/') . '/' . $photo->photo }}" alt="img">
+                 <img class="card-img-top" src="{{ asset($photo->photo) }}" alt="img">
 
                  @if($loop->iteration == 1)
                      @break

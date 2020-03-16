@@ -201,7 +201,7 @@
 
                         <div class="form-group">
                             <label>Gambar Sebelumnya</label>
-                                <img src="{{ asset('assets/banners') . '/' . $setting->top_banner }}" alt="img" class="img-fluid">
+                                <img src="{{ asset( $setting->top_banner) }}" alt="img" class="img-fluid">
                         </div>
 
                          
@@ -244,7 +244,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-right">Gambar Sebelumnya</label>
                             <div class="col-sm-10">
-                                <img src="{{ asset('assets/banners') . '/' . $setting->side_banner }}" alt="img" class="img-fluid">
+                                <img src="{{ asset( $setting->side_banner) }}" alt="img" class="img-fluid">
                             </div>
                         </div>
 
@@ -288,7 +288,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-right">Gambar Sebelumnya</label>
                             <div class="col-sm-10">
-                                <img src="{{ asset('assets/banners') . '/' . $setting->side_child_banner }}" alt="img" class="img-fluid">
+                                <img src="{{ asset( $setting->side_child_banner ) }}" alt="img" class="img-fluid">
                             </div>
                         </div>
 
@@ -334,7 +334,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-right">Gambar Sebelumnya</label>
                             <div class="col-sm-10">
-                                <img src="{{ asset('assets/banners') . '/' . $setting->middle_banner }}" alt="img" class="img-fluid">
+                                <img src="{{ asset( $setting->middle_banner ) }}" alt="img" class="img-fluid">
                             </div>
                         </div>
 
@@ -379,7 +379,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-right">Gambar Sebelumnya</label>
                             <div class="col-sm-10">
-                                <img src="{{ asset('assets/banners') . '/' . $setting->footer_banner }}" alt="img" class="img-fluid">
+                                <img src="{{ asset($setting->footer_banner) }}" alt="img" class="img-fluid">
                             </div>
                         </div>
 
@@ -424,7 +424,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-right">Gambar Sebelumnya</label>
                             <div class="col-sm-10">
-                                <img src="{{ asset('assets/banners') . '/' . $setting->carousel_img1 }}" alt="img" class="img-fluid">
+                                <img src="{{ asset($setting->carousel_img1) }}" alt="img" class="img-fluid">
                             </div>
                         </div>
 
@@ -469,7 +469,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-right">Gambar Sebelumnya</label>
                             <div class="col-sm-10">
-                                <img src="{{ asset('assets/banners') . '/' . $setting->carousel_img2 }}" alt="img" class="img-fluid">
+                                <img src="{{ asset( $setting->carousel_img2 ) }}" alt="img" class="img-fluid">
                             </div>
                         </div>
 
@@ -514,7 +514,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-right">Gambar Sebelumnya</label>
                             <div class="col-sm-10">
-                                <img src="{{ asset('assets/banners') . '/' . $setting->carousel_img3 }}" alt="img" class="img-fluid">
+                                <img src="{{ asset( $setting->carousel_img3 ) }}" alt="img" class="img-fluid">
                             </div>
                         </div>
 
