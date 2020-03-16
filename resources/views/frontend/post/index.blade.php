@@ -6,7 +6,7 @@
     @foreach($posts as $post)
     <div class="col-lg-6 col-md-6 col-sm-6  mt-3">
         <div class="card">
-            <img src="{{ asset('assets/images') . '/' . $post->image }}" class="card-img-top" alt="img">
+            <img src="{{ asset($post->image) }}" class="card-img-top" alt="img">
             <div class="card-body">
                 <h5 class="card-title"><a href="{{ route('baca.post', $post->slug) }}">{{ $post->title }}</a></h5>
                 <span class="badge badge-secondary">{{ $post->category->category_name }}</span>
