@@ -47,26 +47,28 @@ class SettingController extends Controller
     {
         $setting = Setting::find(1);
         $setting->profile_desc = $request->post('profile_desc');
-         if ($setting->push()) {
+        if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateTopBanner(Request $request)
     {
         $setting = Setting::find(1);
 
-        $image = $request->file('top_banner');
-        $target = 'assets/banners';
-        $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
-        $image->move($target, $renameImage);
+        $topBanner = $request->file('top_banner')->store('banners');
 
-        $setting->top_banner = $renameImage;
+        // $image = $request->file('top_banner');
+        // $target = 'assets/banners';
+        // $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
+        // $image->move($target, $renameImage);
+
+        $setting->top_banner = $topBanner;
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateSideBanner(Request $request)
@@ -82,7 +84,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateSideChildBanner(Request $request)
@@ -98,7 +100,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateMiddleBanner(Request $request)
@@ -114,7 +116,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateFooterBanner(Request $request)
@@ -130,7 +132,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateCarouselSatu(Request $request)
@@ -146,7 +148,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateCarouselDua(Request $request)
@@ -162,7 +164,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateCarouselTiga(Request $request)
@@ -178,7 +180,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function updateSocialMedia(Request $request)
@@ -193,7 +195,7 @@ class SettingController extends Controller
         if ($setting->push()) {
             \Toastr::success('Berhasil mengubah pengaturan', 'Success');
             return redirect()->back();
-        } 
+        }
     }
 
     public function profile()
@@ -213,9 +215,9 @@ class SettingController extends Controller
     }
 
     /**
-    * @param UpdatePasswordRequest $request
-    * @return \Illuminate\Http\RedirectResponse
-    */
+     * @param UpdatePasswordRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updatePassword(UpdatePasswordRequest $request)
     {
         $request->user()->update([
