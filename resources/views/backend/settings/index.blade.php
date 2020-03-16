@@ -93,31 +93,31 @@
                     <form action="{{ route('admin.setting.update.socialMedia') }}" method="POST">
                         @csrf
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label text-right">Facebook Fanspage</label>
+                            <label class="col-sm-2 col-form-label text-right">Facebook Fanspage <i>(Link)</i></label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="facebook_fanspage" value="{{ $settings->facebook_fanspage }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label text-right">Facebook</label>
+                            <label class="col-sm-2 col-form-label text-right">Facebook <i>(Link)</i></label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="facebook" value="{{ $settings->facebook }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label text-right">Instagram</label>
+                            <label class="col-sm-2 col-form-label text-right">Instagram <i>(Link)</i></label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="instagram" value="{{ $settings->instagram }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label text-right">Twitter</label>
+                            <label class="col-sm-2 col-form-label text-right">Twitter <i>(Link)</i></label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="twitter" value="{{ $settings->twitter }}" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label text-right">Youtube</label>
+                            <label class="col-sm-2 col-form-label text-right">Whats App <i>(No Hp | Contoh: 6281231xxxx)</i></label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="youtube" value="{{ $settings->youtube }}" required>
                             </div>
