@@ -17,18 +17,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        .banner {
-            margin: 0;
-            height: 50vh;
-            display: flex;
-        }
-
-        .banner-footer {
-            margin: 0;
-            height: 15vh;
-            display: flex;
-        }
-
         .fa {
             padding: 10px;
             font-size: 20px;
@@ -64,11 +52,11 @@
     </style>
 </head>
 
-<body>
+<body class="container-fluid" style="margin:0; padding:0;">
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v6.0"></script>
-    <div class="banner">
-        <img src="{{ asset('assets/banners') . '/' . $setting->top_banner }}" alt="img" class="img-fluid">
+    <div>
+        <img src="{{ asset('assets/banners') . '/' . $setting->top_banner }}" alt="img" class="img-fluid" style="height:350px; width:100%;">
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <a class="navbar-brand mr-5" href="javascript:;"><i class="fi-xnluxl-home-solid"></i></a>
@@ -116,12 +104,12 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <img src="{{ asset('assets/banners') . '/' . $setting->side_banner }}" alt="img" class="img-fluid"
-                            style="display: flex; margin: 0; height: 80vh;">
+                        style="height:558px; width:100%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
-                        <img src="{{ asset('assets/banners') . '/' . $setting->side_child_banner }}" alt="img" class="img-fluid">
+                        <img src="{{ asset('assets/banners') . '/' . $setting->side_child_banner }}" alt="img" class="img-fluid" style="height:198px; width:100%;">
                     </div>
                 </div>
                 <div class="row">
@@ -148,7 +136,7 @@
     </div>
 
     <div class="banner-footer mt-5">
-        <img src="{{ asset('assets/banners') . '/' . $setting->footer_banner }}" alt="img" class="img-fluid">
+        <img src="{{ asset('assets/banners') . '/' . $setting->footer_banner }}" alt="img" class="img-fluid" style="height:104px; width:100%;">
     </div>
 
 
