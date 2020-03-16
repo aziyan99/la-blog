@@ -8,6 +8,7 @@ use App\Setting;
 use App\User;
 use App\Http\Requests\UpdatePasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use Storage;
 
 class SettingController extends Controller
 {
@@ -56,6 +57,7 @@ class SettingController extends Controller
     public function updateTopBanner(Request $request)
     {
         $setting = Setting::find(1);
+        Storage::delete($setting->top_banner);
 
         $topBanner = $request->file('top_banner')->store('banners');
 

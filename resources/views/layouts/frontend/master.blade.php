@@ -56,7 +56,7 @@
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v6.0"></script>
     <div>
-        <img src="{{ asset('assets/banners') . '/' . $setting->top_banner }}" alt="img" class="img-fluid" style="height:350px; width:100%;">
+        <img src="{{ asset( $setting->top_banner ) }}" alt="img" class="img-fluid" style="height:350px; width:100%;">
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <a class="navbar-brand mr-5" href="javascript:;"><i class="fi-xnluxl-home-solid"></i></a>
