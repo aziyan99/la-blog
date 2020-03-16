@@ -92,7 +92,7 @@
                     <a class="nav-link" href="{{ route('depan.galeri.index') }}">Galeri</a>
                 </li>
                 <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{route('depan.kontak')}}">Kontak</a>
+                    <a class="nav-link" href="{{route('depan.kontak')}}">Pengaduan</a>
                 </li>
             </ul>
             <div class="float-right">
