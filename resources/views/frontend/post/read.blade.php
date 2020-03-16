@@ -8,7 +8,7 @@
             
                 <h1>{{ $post->title }}</h1>
                 <span class="badge badge-secondary">{{ $post->category->category_name }}</span>&nbsp;&nbsp;<span class="badge badge-info">Admin</span> <br>
-                <img src="{{ asset('assets/images') . '/' . $post->image }}" class="img-fluid mb-3 mt-3" alt="img">
+                <img src="{{ asset($post->image) }}" class="img-fluid mb-3 mt-3" alt="img">
                 <p class="text-justify mt-2">
                     {!! $post->post !!}
                 </p>

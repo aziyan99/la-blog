@@ -8,6 +8,7 @@ use App\Category;
 use App\Post;
 use Alert;
 use File;
+use Storage;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -62,14 +63,17 @@ class PostController extends Controller
         );
 
         $field = $request->all();
-        $image = $request->file('image');
-        $target = 'assets/images';
-        $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
-        $image->move($target, $renameImage);
+        //$image = $request->file('image');
+        // $target = 'assets/images';
+        // $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
+        // $image->move($target, $renameImage);
+
+        $img = $request->file('image')->store('images');
+
         $storePost = new Post([
             'title' => $field['title'],
             'slug' => $field['slug'],
-            'image' => $renameImage,
+            'image' => $img,
             'post' => $field['post'],
             'category_id' => $field['category_id'],
         ]);
@@ -130,23 +134,26 @@ class PostController extends Controller
         );
 
         $field = $request->all();
-        $image = $request->file('image');
+        //$image = $request->file('image');
 
         if ($image) {
-            $target = 'assets/images';
-            $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
-            $image->move($target, $renameImage);
+            // $target = 'assets/images';
+            // $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
+            // $image->move($target, $renameImage);
 
-            $deleteOldImage = $target . "/" . $field['oldImage'];
-            if (File::exists($deleteOldImage)) {
-                File::delete($deleteOldImage);
-            }
+            // $deleteOldImage = $target . "/" . $field['oldImage'];
+            // if (File::exists($deleteOldImage)) {
+            //     File::delete($deleteOldImage);
+            // }
 
             $post = Post::find($id);
+            Storage::delete($post->image);
+            $img = $request->file('image')->store('images');
+
             $post->title = $field['title'];
             $post->slug = $field['slug'];
             $post->category_id = $field['category_id'];
-            $post->image = $renameImage;
+            $post->image = $img;
             $post->post = $field['post'];
 
             if ($post->push()) {
@@ -183,12 +190,15 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        $image = $post->image;
-        $path = 'assets/images';
-        $deleteImage = $path . "/" . $image;
-        if (File::exists($deleteImage)) {
-            File::delete($deleteImage);
-        }
+        // $image = $post->image;
+        // $path = 'assets/images';
+        // $deleteImage = $path . "/" . $image;
+        // if (File::exists($deleteImage)) {
+        //     File::delete($deleteImage);
+        // }
+
+        Storage::delete($post->image);
+
         if ($post->delete()) {
             \Toastr::success('Berhasil menghapus berita', 'Berhasil');
             return redirect(route('post.index'));
