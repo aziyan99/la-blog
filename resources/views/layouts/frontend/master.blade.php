@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset($setting->logo) }}" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Home</title>
@@ -40,8 +41,8 @@
             color: white;
         }
 
-        .fa-youtube {
-            background: #bb0000;
+        .fa-whatsapp {
+            background: #25D366;
             color: white;
         }
 
@@ -59,7 +60,7 @@
         <img src="{{ asset( $setting->top_banner ) }}" alt="img" class="img-fluid" style="height:350px; width:100%;">
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-        <a class="navbar-brand mr-5" href="javascript:;"><i class="fi-xnluxl-home-solid"></i></a>
+        <a class="navbar-brand mr-5" href="{{route('index')}}"><i class="fi-xnluxl-home-solid"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,24 +68,24 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active mr-5">
-                    <a class="nav-link" href="{{route('index')}}">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item {{ Request::segment(1) == null ? 'active' : ''}} mr-5">
+                    <a class="nav-link" href="{{route('index')}}">Home {!! Request::segment(1) == null ?'<span class="sr-only">(current)</span>' : '' !!}</a>
                 </li>
-                <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{route('profile')}}">Profile</a>
+                <li class="nav-item {{ Request::segment(1) == "profile" ? 'active' : ''}} mr-5">
+                    <a class="nav-link" href="{{route('profile')}}">Profile {!! Request::segment(1) == "profile" ?'<span class="sr-only">(current)</span>' : '' !!}</a>
                 </li>
-                <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{route('post.semua')}}">Berita & Artikel</a>
+                <li class="nav-item {{ Request::segment(1) == "semua-berita-dan-artikel" || Request::segment(1) == "baca" ? 'active' : ''}} mr-5">
+                    <a class="nav-link" href="{{route('post.semua')}}">Berita & Artikel {!! Request::segment(1) == "semua-berita-dan-artikel" || Request::segment(1) == "baca" ?'<span class="sr-only">(current)</span>' : '' !!}</a>
                 </li>
-                <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{ route('depan.galeri.index') }}">Galeri</a>
+                <li class="nav-item {{ Request::segment(1) == "semua-galeri" || Request::segment(1) == "galeri" ? 'active' : ''}} mr-5">
+                    <a class="nav-link" href="{{ route('depan.galeri.index') }}">Galeri {!! Request::segment(1) == "semua-galeri" || Request::segment(1) == "galeri" ?'<span class="sr-only">(current)</span>' : '' !!}</a>
                 </li>
-                <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{route('depan.kontak')}}">Pengaduan</a>
+                <li class="nav-item {{ Request::segment(1) == "kontak" ? 'active' : ''}} mr-5">
+                    <a class="nav-link" href="{{route('depan.kontak')}}">Pengaduan {!! Request::segment(1) == null ?'<span class="sr-only">(current)</span>' : '' !!}</a>
                 </li>
             </ul>
             <div class="float-right">
-                <i class="fi-xwsuxl-update"></i>
+                <i class="fa fa-search"></i>
             </div>
         </div>
     </nav>
@@ -118,16 +119,16 @@
                     </div>
                 </div>
                 <div class="d-flex flex-row bd-highlight mt-3">
-                    <a href="{{ $setting->facebook }}" class="bd-highlight">
+                    <a href="{{ $setting->facebook }}" class="bd-highlight" target="_blank">
                         <i class="fa fa-facebook"></i>
                     </a>
-                    <a href="{{ $setting->twitter }}" class="bd-highlight">
+                    <a href="{{ $setting->twitter }}" class="bd-highlight" target="_blank">
                         <i class="fa fa-twitter"></i>
                     </a>
-                    <a href="{{ $setting->youtube }}" class="bd-highlight">
-                        <i class="fa fa-youtube"></i>
+                    <a href="https://wa.me/{{ $setting->youtube }}" class="bd-highlight" target="_blank">
+                        <i class="fa fa-whatsapp"></i>
                     </a>
-                    <a href="{{ $setting->instagram }}" class="bd-highlight">
+                    <a href="{{ $setting->instagram }}" class="bd-highlight" target="_blank">
                         <i class="fa fa-instagram"></i>
                     </a>
                 </div>
