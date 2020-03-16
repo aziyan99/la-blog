@@ -9,7 +9,7 @@
 
     @foreach($gallery->photos as $photo)
       <div class="col-lg-12 cl-md-12 col-sm-12 mt-3">
-          <img src="{{ asset('assets/gallery/') . '/' . $photo->photo }}" alt="img" class="img-fluid">
+          <img src="{{ asset($photo->photo) }}" alt="img" class="img-fluid">
       </div>
     @endforeach
       
@@ -97,7 +97,7 @@
     var items = [
         @foreach($gallery->photos as $data)
             {
-                src: '{{ asset('assets/gallery/') . '/' . $data->photo }}',
+                src: '{{ asset($data->photo) }}',
                 w: 600, 
                 h: 400
             },

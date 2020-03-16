@@ -6,14 +6,15 @@ use App\Gallery;
 use App\Photo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Storage;
 
 class GalleryController extends Controller
 {
 
     public function __construct()
-        {
-            $this->middleware('auth');
-        }
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Display a listing of the resource.
@@ -105,14 +106,15 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $gallery = Gallery::with('Photos')->find($id);
-        
+
         foreach ($gallery->photos as $data) {
-            $image = $data->photo;
-            $path = 'assets/gallery';
-            $deleteImage = $path . "/" . $image;
-            if (\File::exists($deleteImage)) {
-                \File::delete($deleteImage);
-            }
+            // $image = $data->photo;
+            // $path = 'assets/gallery';
+            // $deleteImage = $path . "/" . $image;
+            // if (\File::exists($deleteImage)) {
+            //     \File::delete($deleteImage);
+            // }
+            Storage::delete($data->photo);
         }
         if ($gallery->delete()) {
             \Toastr::success('Berhasil menghapus galeri', 'Berhasil');
@@ -125,14 +127,15 @@ class GalleryController extends Controller
 
     public function addPhoto(Request $request)
     {
-        $image = $request->file('photo');
+        $image = $request->file('photo')->store('galleries');
         $id = $request->post('gallery_id');
-        $target = 'assets/gallery';
-        $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
-        $image->move($target, $renameImage);
+        // $target = 'assets/gallery';
+        // $renameImage = uniqid() . "." . $image->getClientOriginalExtension();
+        // $image->move($target, $renameImage);
+
         $photoPost = new Photo([
             'gallery_id' => $id,
-            'photo' => $renameImage
+            'photo' => $image
         ]);
         if ($photoPost->save()) {
             \Toastr::success('Berhasil menambah gambar', 'Berhasil');
@@ -146,12 +149,15 @@ class GalleryController extends Controller
     public function deletePhoto($id)
     {
         $photo = Photo::find($id);
-        $image = $photo->photo;
-        $path = 'assets/gallery';
-        $deleteImage = $path . "/" . $image;
-        if (\File::exists($deleteImage)) {
-            \File::delete($deleteImage);
-        }
+        // $image = $photo->photo;
+        // $path = 'assets/gallery';
+        // $deleteImage = $path . "/" . $image;
+        // if (\File::exists($deleteImage)) {
+        //     \File::delete($deleteImage);
+        // }
+
+        Storage::delete($photo->photo);
+
         if ($photo->delete()) {
             \Toastr::success('Berhasil menghapus gambar', 'Berhasil');
             return redirect()->back();

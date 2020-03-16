@@ -33,8 +33,8 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>
-                                    <a href="{{asset('assets/gallery') . "/" . $photo->photo}}" target="_blank">
-                                        <img src="{{asset('assets/gallery') . "/" . $photo->photo}}" alt="img" class="img-fluid">
+                                    <a href="{{asset($photo->photo)}}" target="_blank">
+                                        <img src="{{asset($photo->photo)}}" alt="img" class="img-fluid">
                                     </a>
                                 </td>
                                 <td>
