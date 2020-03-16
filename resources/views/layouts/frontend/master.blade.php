@@ -103,13 +103,13 @@
             <div class="col-lg-4 col-md-4 col-sm-4 mt-3">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <img src="{{ asset('assets/banners') . '/' . $setting->side_banner }}" alt="img" class="img-fluid"
+                        <img src="{{ asset( $setting->side_banner) }}" alt="img" class="img-fluid"
                         style="height:558px; width:100%;">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
-                        <img src="{{ asset('assets/banners') . '/' . $setting->side_child_banner }}" alt="img" class="img-fluid" style="height:198px; width:100%;">
+                        <img src="{{ asset( $setting->side_child_banner) }}" alt="img" class="img-fluid" style="height:198px; width:100%;">
                     </div>
                 </div>
                 <div class="row">
@@ -136,7 +136,7 @@
     </div>
 
     <div class="banner-footer mt-5">
-        <img src="{{ asset('assets/banners') . '/' . $setting->footer_banner }}" alt="img" class="img-fluid" style="height:104px; width:100%;">
+        <img src="{{ asset( $setting->footer_banner ) }}" alt="img" class="img-fluid" style="height:104px; width:100%;">
     </div>
 
 
