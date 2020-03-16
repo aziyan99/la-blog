@@ -1,75 +1,21 @@
+@extends('layouts.frontend.master')
 
-<!doctype html>
-<html lang="en">
+@section('content')
+<div class="row mt-3">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/frontend/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Baca</title>
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .banner {
-            margin: 0;
-            height: 50vh;
-            display: flex;
-        }
-
-        .banner-footer {
-            margin: 0;
-            height: 15vh;
-            display: flex;
-        }
-
-        .fa {
-            padding: 10px;
-            font-size: 20px;
-            width: 50px;
-            text-align: center;
-            text-decoration: none;
-            margin: 5px 2px;
-        }
-
-        .fa:hover {
-            opacity: 0.7;
-        }
-
-        .fa-facebook {
-            background: #3B5998;
-            color: white;
-        }
-
-        .fa-twitter {
-            background: #55ACEE;
-            color: white;
-        }
-
-        .fa-youtube {
-            background: #bb0000;
-            color: white;
-        }
-
-        .fa-instagram {
-            background: #125688;
-            color: white;
-        }
-    </style>
-</head>
-
-<body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v6.0"></script>
-    <div class="banner">
-        <img src="{{ asset('assets/banners') . '/' . $setting->top_banner }}" alt="img" class="img-fluid">
+    <div class="col-lg-12 col-md-12 col-sm-12  mt-3">
+      
+            
+                <h1>{{ $post->title }}</h1>
+                <span class="badge badge-secondary">{{ $post->category->category_name }}</span>&nbsp;&nbsp;<span class="badge badge-info">Admin</span> <br>
+                <img src="{{ asset('assets/images') . '/' . $post->image }}" class="img-fluid mb-3 mt-3" alt="img">
+                <p class="text-justify mt-2">
+                    {!! $post->post !!}
+                </p>
+                <p><small class="text-muted">{{ $post->created_at }}</small></p>
+           
     </div>
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
         <a class="navbar-brand mr-5" href="javascript:;"><i class="fi-xnluxl-home-solid"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -171,5 +117,9 @@
     <script src="{{ asset('assets') }}/frontend/js/bootstrap.min.js"></script>
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
 </body>
+=======
+>>>>>>> hotfix/change-template
 
-</html>
+    
+</div>
+@endsection
